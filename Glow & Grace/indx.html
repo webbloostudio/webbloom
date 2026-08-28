@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glow & Grace | Beauty Salon</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,serif;
+    background:#fffafc;
+    color:#3d2934;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(255,250,252,.96);
+
+    box-shadow:0 3px 18px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#3d2934;
+    font-family:Arial,sans-serif;
+}
+
+nav a:hover{
+    color:#a85d7a;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:110px 20px;
+
+    background:
+    linear-gradient(
+        rgba(255,246,249,.82),
+        rgba(255,246,249,.82)
+    ),
+    url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:750px;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero h1{
+    font-size:64px;
+    line-height:1.15;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#a85d7a;
+}
+
+.hero p{
+    font-family:Arial,sans-serif;
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:32px;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    background:#9d5b78;
+    color:white;
+
+    text-decoration:none;
+
+    font-family:Arial,sans-serif;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:45px;
+}
+
+.subtitle{
+    text-align:center;
+    font-family:Arial,sans-serif;
+    color:#765e68;
+    margin-top:-25px;
+    margin-bottom:45px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service{
+    background:white;
+    padding:35px 25px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.service h3{
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.service p{
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    color:#6e5a63;
+}
+
+.price{
+    display:block;
+    margin-top:18px;
+
+    font-size:20px;
+    font-weight:bold;
+
+    color:#9d5b78;
+}
+
+/* ABOUT */
+
+.about{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+.about-box{
+    max-width:850px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:270px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+/* APPOINTMENT */
+
+.appointment{
+    text-align:center;
+
+    background:#f8e5ee;
+}
+
+.appointment p{
+    font-family:Arial,sans-serif;
+    font-size:18px;
+
+    margin-bottom:28px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:25px;
+
+    text-align:center;
+
+    background:#35262e;
+    color:white;
+
+    font-family:Arial,sans-serif;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .services,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:70px 6%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="logo">
+✨ Glow & Grace
+</div>
+
+<ul>
+
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#services">Services</a>
+</li>
+
+<li>
+<a href="#about">About</a>
+</li>
+
+<li>
+<a href="#gallery">Gallery</a>
+</li>
+
+<li>
+<a href="#appointment">Appointment</a>
+</li>
+
+</ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Beauty That Makes You
+<span>Glow</span>
+</h1>
+
+<p>
+A peaceful beauty experience designed
+to help you feel confident, refreshed and beautiful.
+</p>
+
+<a href="#services" class="btn">
+Explore Services
+</a>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<h2 class="title">
+Our Services
+</h2>
+
+<p class="subtitle">
+Professional beauty care for every occasion.
+</p>
+
+
+<div class="services">
+
+
+<div class="service">
+
+<div class="icon">
+💇‍♀️
+</div>
+
+<h3>
+Hair Styling
+</h3>
+
+<p>
+Haircuts, styling and beautiful looks
+for your special moments.
+</p>
+
+<span class="price">
+From ₹499
+</span>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">
+💅
+</div>
+
+<h3>
+Nail Care
+</h3>
+
+<p>
+Beautiful manicures and nail care
+for a polished finish.
+</p>
+
+<span class="price">
+From ₹399
+</span>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">
+✨
+</div>
+
+<h3>
+Facial & Glow
+</h3>
+
+<p>
+Relaxing facial treatments designed
+for a fresh and refreshed look.
+</p>
+
+<span class="price">
+From ₹599
+</span>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">
+💄
+</div>
+
+<h3>
+Makeup
+</h3>
+
+<p>
+Elegant makeup looks for parties,
+events and celebrations.
+</p>
+
+<span class="price">
+From ₹999
+</span>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">
+🌸
+</div>
+
+<h3>
+Bridal Beauty
+</h3>
+
+<p>
+Special beauty packages for
+your unforgettable day.
+</p>
+
+<span class="price">
+From ₹2999
+</span>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">
+🧖‍♀️
+</div>
+
+<h3>
+Spa & Relaxation
+</h3>
+
+<p>
+Take a peaceful break with
+our relaxing beauty treatments.
+</p>
+
+<span class="price">
+From ₹799
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="title">
+About Glow & Grace
+</h2>
+
+<div class="about">
+
+<div class="about-box">
+
+<p>
+Glow & Grace is a modern beauty salon focused
+on personalized care, elegant styling and relaxing
+beauty experiences.
+
+</p>
+
+<br>
+
+<p>
+Our goal is simple — helping every guest leave
+feeling confident, refreshed and ready to shine.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2 class="title">
+Our Gallery
+</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
+</section>
+
+
+<!-- APPOINTMENT -->
+
+<section class="appointment" id="appointment">
+
+<h2 class="title">
+Book Your Appointment
+</h2>
+
+<p>
+Ready for your next beauty experience?
+</p>
+
+<a
+href="mailto:webbloom.creative@gmail.com?subject=Glow%20%26%20Grace%20Appointment"
+class="btn">
+
+Book Appointment
+
+</a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Glow & Grace • Beauty & Wellness
+
+</footer>
+
+
+</body>
+</html>
