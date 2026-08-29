@@ -1,637 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sweet Crumbs | Home Bakery</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+body{
+    font-family:Georgia, serif;
+    background:#fffaf7;
+    color:#3b2925;
+}
 
-    <title>My Web Portfolio</title>
+/* NAVBAR */
 
-    <style>
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #fffaf7;
-            color: #332525;
-        }
+    padding:18px 8%;
 
-        /* NAVBAR */
+    background:rgba(255,250,247,.96);
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 18px 8%;
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
 
-            background: rgba(255,255,255,0.95);
+nav a{
+    color:#3b2925;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+}
 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+nav a:hover{
+    color:#a85d62;
+}
 
-            z-index: 1000;
-        }
+/* HERO */
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+.hero{
+    min-height:100vh;
 
-        nav ul {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-        nav a {
-            text-decoration: none;
-            color: #332525;
-        }
+    text-align:center;
 
-        nav a:hover {
-            color: #9b5d62;
-        }
+    padding:100px 20px;
 
+    background:
+    linear-gradient(
+        rgba(255,247,242,.88),
+        rgba(255,247,242,.88)
+    ),
+    url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1600&q=80");
 
-        /* HERO */
+    background-size:cover;
+    background-position:center;
+}
 
-        .hero {
+.hero-content{
+    max-width:750px;
 
-            min-height: 100vh;
+    animation:fadeUp 1.2s ease;
+}
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-
-            padding: 100px 20px;
-
-            background:
-                linear-gradient(
-                    rgba(255,245,240,0.9),
-                    rgba(255,245,240,0.9)
-                );
-
-        }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #9b5d62;
-        }
-
-        .hero p {
-            font-size: 20px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            color: #62494b;
-        }
-
-        .btn {
-
-            display: inline-block;
-
-            padding: 14px 30px;
-
-            background: #8e4f55;
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 30px;
-
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-
-        /* GENERAL SECTIONS */
-
-        section {
-            padding: 90px 8%;
-        }
-
-        .title {
-
-            text-align: center;
-
-            font-size: 38px;
-
-            margin-bottom: 50px;
-        }
-
-
-        /* ABOUT */
-
-        .about {
-
-            max-width: 800px;
-
-            margin: auto;
-
-            text-align: center;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-        }
-
-
-        /* PROJECTS */
-
-        .projects {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .project {
-
-            background: white;
-
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.08);
-
-            transition: 0.4s;
-        }
-
-        .project:hover {
-
-            transform:
-                translateY(-8px);
-        }
-
-        .project img {
-
-            width: 100%;
-
-            height: 250px;
-
-            object-fit: cover;
-        }
-
-        .project-content {
-
-            padding: 25px;
-
-            text-align: center;
-        }
-
-        .project-content h3 {
-
-            margin-bottom: 12px;
-        }
-
-        .project-content p {
-
-            line-height: 1.6;
-
-            color: #665555;
-
-            margin-bottom: 20px;
-        }
-
-
-        /* SERVICES */
-
-        .services {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .service {
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 18px;
-
-            text-align: center;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.06);
-        }
-
-        .service span {
-
-            font-size: 40px;
-        }
-
-        .service h3 {
-
-            margin: 15px 0;
-        }
-
-        .service p {
-
-            line-height: 1.6;
-        }
-
-
-        /* CONTACT */
-
-        .contact {
-
-            text-align: center;
-
-            background: #f7e8e5;
-        }
-
-        .contact p {
-
-            font-size: 18px;
-
-            margin-bottom: 25px;
-        }
-
-
-        /* FOOTER */
-
-        footer {
-
-            padding: 25px;
-
-            text-align: center;
-
-            background: #332525;
-
-            color: white;
-        }
-
-
-        /* MOBILE */
-
-        @media(max-width: 768px) {
-
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .projects,
-            .services {
-
-                grid-template-columns: 1fr;
-            }
-
-            section {
-
-                padding: 70px 6%;
-            }
-
-        }
-
-    </style>
-
+.hero h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#a85d62;
+}
+
+.hero p{
+    font-family:Arial,sans-serif;
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:14px 30px;
+
+    background:#8f5056;
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+    font-family:Arial,sans-serif;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.subtitle{
+    text-align:center;
+    font-family:Arial,sans-serif;
+    margin-top:-30px;
+    margin-bottom:40px;
+    color:#765f5b;
+}
+
+/* MENU */
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+    text-align:center;
+}
+
+.card h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    color:#6c5a56;
+}
+
+.price{
+    display:block;
+    margin:15px 0;
+    font-size:20px;
+    font-weight:bold;
+    color:#9b555b;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    font-family:Arial,sans-serif;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+/* ORDER */
+
+.order{
+    text-align:center;
+    background:#f7e5df;
+}
+
+.order p{
+    font-family:Arial,sans-serif;
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#342522;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-family:Arial,sans-serif;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .menu,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:70px 6%;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- NAVIGATION -->
+<!-- NAVIGATION -->
 
-    <nav>
+<nav>
 
-        <div class="logo">
-            WebBloom Studio
-        </div>
+<div class="logo">
+🍰 Sweet Crumbs
+</div>
 
-        <ul>
+<ul>
 
-            <li>
-                <a href="#home">Home</a>
-            </li>
+<li>
+<a href="#home">Home</a>
+</li>
 
-            <li>
-                <a href="#about">About</a>
-            </li>
+<li>
+<a href="#menu">Menu</a>
+</li>
 
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
+<li>
+<a href="#about">About</a>
+</li>
 
-            <li>
-                <a href="#services">Services</a>
-            </li>
+<li>
+<a href="#gallery">Gallery</a>
+</li>
 
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+<li>
+<a href="#order">Order</a>
+</li>
 
-        </ul>
+</ul>
 
-    </nav>
+</nav>
 
 
-    <!-- HOME -->
+<!-- HERO -->
 
-    <section class="hero" id="home">
+<section class="hero" id="home">
 
-        <div class="hero-content">
+<div class="hero-content">
 
-            <h1>
-                I Build
-                <span>Modern Websites</span>
-            </h1>
+<h1>
+Freshly Baked,
+<span>Made With Love</span>
+</h1>
 
-            <p>
+<p>
+Delicious homemade cakes, cupcakes and sweet treats
+baked fresh for your special moments.
+</p>
 
-                I create clean, responsive and
-                attractive websites for small
-                businesses, creators and personal brands.
-
-            </p>
-
-            <a
-                href="#projects"
-                class="btn">
-
-                View My Work
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about">
-
-        <h2 class="title">
-            About Me
-        </h2>
-
-        <div class="about">
-
-            <p>
-
-                Hi! I'm a web designer and developer
-                focused on creating simple, modern
-                and mobile-friendly websites.
-
-                I create websites that help small
-                businesses build their online presence.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-
-    <section id="projects">
-
-        <h2 class="title">
-            My Projects
-        </h2>
-
-
-        <div class="projects">
-
-
-            <!-- PROJECT 1 -->
-
-            <div class="project">
-
-                <img
-                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
-                    alt="Boutique Website">
-
-                <div class="project-content">
-
-                    <h3>
-                        Aaira Boutique
-                    </h3>
-
-                    <p>
-
-                        Modern fashion boutique
-                        website concept with
-                        responsive design.
-
-                    </p>
-
-                    <a href="Aaira%20Boutique/index.html" class="btn">
-    View Demo
-</a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 2 -->
-
-            <div class="project">
-
-                <img
-                    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=900&q=80"
-                    alt="Bakery Website">
-
-                <div class="project-content">
-
-                    <h3>
-                        Sweet Crumbs
-                    </h3>
-
-                    <p>
-
-                        Home bakery website
-                        concept with menu,
-                        gallery and ordering.
-
-                    </p>
-
-                   <a href="Sweet%20Crumbs/index.html" class="btn">
-    View Demo
-</a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 3 -->
-
-            <div class="project">
-
-                <img
-                    src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80"
-                    alt="Salon Website">
-
-          <div class="project-content">
-
-    <h3>
-        Glow & Grace
-    </h3>
-
-    <p>
-        Elegant beauty salon website
-        concept for services,
-        gallery and appointment booking.
-    </p>
-
-    <a
-    href="Glow%20%26%20Grace/index.html"
-    class="btn">
-
-    View Demo
-
+<a href="#menu" class="btn">
+Explore Our Menu
 </a>
 
 </div>
 
-            </div>
+</section>
 
 
-        </div>
+<!-- MENU -->
 
-    </section>
+<section id="menu">
 
+<h2 class="title">
+Our Sweet Menu
+</h2>
 
-    <!-- SERVICES -->
-
-    <section id="services">
-
-        <h2 class="title">
-            My Services
-        </h2>
-
-
-        <div class="services">
+<p class="subtitle">
+Freshly baked favourites made with care.
+</p>
 
 
-            <div class="service">
-
-                <span>🌐</span>
-
-                <h3>
-                    Business Websites
-                </h3>
-
-                <p>
-                    Modern websites for
-                    small businesses.
-                </p>
-
-            </div>
+<div class="menu">
 
 
-            <div class="service">
+<div class="card">
 
-                <span>💻</span>
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80">
 
-                <h3>
-                    Portfolio Websites
-                </h3>
+<div class="card-content">
 
-                <p>
-                    Personal portfolios
-                    for creators and professionals.
-                </p>
+<h3>
+Chocolate Cake
+</h3>
 
-            </div>
+<p>
+Rich chocolate cake with creamy frosting.
+</p>
 
+<span class="price">
+₹699
+</span>
 
-            <div class="service">
+<a href="#order" class="btn">
+Order Now
+</a>
 
-                <span>✨</span>
+</div>
 
-                <h3>
-                    Landing Pages
-                </h3>
-
-                <p>
-                    Attractive landing pages
-                    for products and services.
-                </p>
-
-            </div>
+</div>
 
 
-        </div>
+<div class="card">
 
-    </section>
+<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-content">
+
+<h3>
+Vanilla Cupcakes
+</h3>
+
+<p>
+Soft vanilla cupcakes with delicious cream.
+</p>
+
+<span class="price">
+₹399 / 6 pcs
+</span>
+
+<a href="#order" class="btn">
+Order Now
+</a>
+
+</div>
+
+</div>
 
 
-    <!-- CONTACT -->
+<div class="card">
 
-    <section
-        class="contact"
-        id="contact">
+<img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=80">
 
-        <h2 class="title">
-            Let's Work Together
-        </h2>
+<div class="card-content">
 
-        <p>
-            Need a modern website for your business?
-        </p>
+<h3>
+Strawberry Cake
+</h3>
 
-        <a
-    href="mailto:webbloom.creative@gmail.com"
-    class="btn">
+<p>
+Light sponge cake with strawberry cream.
+</p>
 
-    Contact Me via Email
+<span class="price">
+₹799
+</span>
+
+<a href="#order" class="btn">
+Order Now
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="title">
+Our Story
+</h2>
+
+<div class="about">
+
+<p>
+Sweet Crumbs is a small home bakery created
+with a love for baking beautiful and delicious
+treats. Every order is prepared fresh and made
+especially for your celebrations.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2 class="title">
+Sweet Gallery
+</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=900&q=80">
+
+<img src="cake.jpg" alt="Sweet Crumbs">
+
+<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section class="order" id="order">
+
+<h2 class="title">
+Ready to Order?
+</h2>
+
+<p>
+Tell us what sweet treat you're craving!
+</p>
+
+<a
+href="mailto:YOUR_EMAIL@gmail.com?subject=Sweet%20Crumbs%20Order"
+class="btn">
+
+Order by Email
 
 </a>
 
-    </section>
+</section>
 
 
-    <!-- FOOTER -->
+<!-- FOOTER -->
 
-    <footer>
+<footer>
 
-        © 2026 WebBloom Studio
+© 2026 Sweet Crumbs • Freshly Baked With Love
 
-    </footer>
+</footer>
 
 
 </body>
-
 </html>
