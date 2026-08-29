@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Web Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffaf7;
+            color: #332525;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(255,255,255,0.95);
+
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #332525;
+        }
+
+        nav a:hover {
+            color: #9b5d62;
+        }
+
+
+        /* HERO */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 100px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(255,245,240,0.9),
+                    rgba(255,245,240,0.9)
+                );
+
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #9b5d62;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #62494b;
+        }
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #8e4f55;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .title {
+
+            text-align: center;
+
+            font-size: 38px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* ABOUT */
+
+        .about {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+
+        /* PROJECTS */
+
+        .projects {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .project {
+
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+
+            transition: 0.4s;
+        }
+
+        .project:hover {
+
+            transform:
+                translateY(-8px);
+        }
+
+        .project img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+        }
+
+        .project-content {
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        .project-content h3 {
+
+            margin-bottom: 12px;
+        }
+
+        .project-content p {
+
+            line-height: 1.6;
+
+            color: #665555;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* SERVICES */
+
+        .services {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .service {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .service span {
+
+            font-size: 40px;
+        }
+
+        .service h3 {
+
+            margin: 15px 0;
+        }
+
+        .service p {
+
+            line-height: 1.6;
+        }
+
+
+        /* CONTACT */
+
+        .contact {
+
+            text-align: center;
+
+            background: #f7e8e5;
+        }
+
+        .contact p {
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #332525;
+
+            color: white;
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width: 768px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .projects,
+            .services {
+
+                grid-template-columns: 1fr;
+            }
+
+            section {
+
+                padding: 70px 6%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            WebBloom Studio
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#services">Services</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                I Build
+                <span>Modern Websites</span>
+            </h1>
+
+            <p>
+
+                I create clean, responsive and
+                attractive websites for small
+                businesses, creators and personal brands.
+
+            </p>
+
+            <a
+                href="#projects"
+                class="btn">
+
+                View My Work
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2 class="title">
+            About Me
+        </h2>
+
+        <div class="about">
+
+            <p>
+
+                Hi! I'm a web designer and developer
+                focused on creating simple, modern
+                and mobile-friendly websites.
+
+                I create websites that help small
+                businesses build their online presence.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <h2 class="title">
+            My Projects
+        </h2>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+                    alt="Boutique Website">
+
+                <div class="project-content">
+
+                    <h3>
+                        Aaira Boutique
+                    </h3>
+
+                    <p>
+
+                        Modern fashion boutique
+                        website concept with
+                        responsive design.
+
+                    </p>
+
+                    <a href="../Aaira Boutique/index.html" class="btn">
+    View Demo
+</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=900&q=80"
+                    alt="Bakery Website">
+
+                <div class="project-content">
+
+                    <h3>
+                        Sweet Crumbs
+                    </h3>
+
+                    <p>
+
+                        Home bakery website
+                        concept with menu,
+                        gallery and ordering.
+
+                    </p>
+
+                    <a href="../Sweet Crumbs/index.html" class="btn">
+    View Demo
+</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project">
+
+                <img
+                    src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80"
+                    alt="Salon Website">
+
+                <div class="project-content">
+
+                    <h3>
+                        Glow Studio
+                    </h3>
+
+                    <p>
+
+                        Elegant salon website
+                        concept for services,
+                        pricing and booking.
+
+                    </p>
+
+                    <a
+                        href="#"
+                        class="btn">
+
+                        Coming Soon
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+        <h2 class="title">
+            My Services
+        </h2>
+
+
+        <div class="services">
+
+
+            <div class="service">
+
+                <span>🌐</span>
+
+                <h3>
+                    Business Websites
+                </h3>
+
+                <p>
+                    Modern websites for
+                    small businesses.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <span>💻</span>
+
+                <h3>
+                    Portfolio Websites
+                </h3>
+
+                <p>
+                    Personal portfolios
+                    for creators and professionals.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <span>✨</span>
+
+                <h3>
+                    Landing Pages
+                </h3>
+
+                <p>
+                    Attractive landing pages
+                    for products and services.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section
+        class="contact"
+        id="contact">
+
+        <h2 class="title">
+            Let's Work Together
+        </h2>
+
+        <p>
+            Need a modern website for your business?
+        </p>
+
+        <a
+    href="mailto:webbloom.creative@gmail.com"
+    class="btn">
+
+    Contact Me via Email
+
+</a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 WebBloom Studio
+
+    </footer>
+
+
+</body>
+
+</html>
